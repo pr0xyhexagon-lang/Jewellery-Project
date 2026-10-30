@@ -1,0 +1,918 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+          content="Discover handmade silver, gold-plated and rose-gold-plated jewellery from Luxe Layers LK." />
+
+    <title>@ViewData["Title"] | Luxe Layers LK</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Luxe Layers LK -->
+    <link rel="stylesheet"
+          href="~/assets/css/site.css"
+          asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="announcement-bar">
+
+            <div class="announcement-inner">
+
+                <span>
+                    Island-wide Free Delivery | International Shipping Available
+                </span>
+
+                <div class="announcement-links">
+                    <a href="#">Order Tracking</a>
+                    <a href="#">Contact Us</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="luxury-navbar navbar navbar-expand-lg navbar-light">
+
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand luxury-logo"
+           asp-controller="Home"
+           asp-action="Index">
+
+            <img src="~/assets/images/logo.png"
+                 alt="Luxe Layers LK"
+                 loading="eager" />
+
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#luxuryNavigation"
+                aria-controls="luxuryNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="luxuryNavigation">
+
+            <ul class="navbar-nav luxury-menu mx-auto">
+
+                <!-- HOME -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       asp-controller="Home"
+                       asp-action="Index">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <!-- NEW ARRIVALS -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="/#new-arrivals">
+
+                        New Arrivals
+
+                    </a>
+
+                </li>
+
+                <!-- WOMEN MEGA MENU -->
+                <li class="nav-item mega-menu-item">
+
+                    <button class="nav-link mega-menu-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="womenMegaMenu">
+
+                        <span>Women</span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                    <div class="mega-menu"
+                         id="womenMegaMenu">
+
+                        <div class="mega-menu-inner">
+
+                            <div class="mega-menu-intro">
+
+                                <p class="mega-menu-eyebrow">
+                                    Shop for Her
+                                </p>
+
+                                <h2>Women</h2>
+
+                                <p>
+                                    Handmade jewellery designed to celebrate
+                                    every layer of her personal style.
+                                </p>
+
+                                <a asp-controller="Women"
+                                   asp-action="Index"
+                                   class="mega-menu-shop-link">
+
+                                    Shop All Women
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Jewellery</h3>
+
+                               <a asp-controller="Women"
+                                   asp-action="Rings">
+                                    Rings
+                                </a>
+
+                                <a asp-controller="Women"
+                                   asp-action="Necklaces">
+                                    Necklaces
+                                </a>
+
+                                <a asp-controller="Women"
+                                   asp-action="Anklets">
+                                    Anklets
+                                </a>
+
+                               <a asp-controller="Women"
+                                   asp-action="Earrings">
+                                    Earrings
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>More to Explore</h3>
+
+                                <a asp-controller="Women"
+                                   asp-action="Bangles">
+                                    Bangles
+                                </a>
+
+                                <a asp-controller="Women"
+                                   asp-action="Pendants">
+                                    Pendants
+                                </a>
+
+                                <a asp-controller="Women"
+                                   asp-action="NoseRings">
+                                    Nose Rings
+                                </a>
+
+                            </div>
+
+                            <a class="mega-menu-feature"
+                               href="/#women">
+
+                                <img src="~/assets/images/home/category-women.jpg"
+                                     alt="Women’s handmade jewellery"
+                                     loading="lazy" />
+
+                                <span class="mega-menu-feature-overlay"></span>
+
+                                <span class="mega-menu-feature-content">
+
+                                    <small>Curated for Her</small>
+
+                                    <strong>
+                                        Discover Women’s Jewellery
+                                    </strong>
+
+                                    <span>
+                                        Explore
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <!-- MEN MEGA MENU -->
+                <li class="nav-item mega-menu-item">
+
+                    <button class="nav-link mega-menu-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="menMegaMenu">
+
+                        <span>Men</span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                    <div class="mega-menu"
+                         id="menMegaMenu">
+
+                        <div class="mega-menu-inner">
+
+                            <div class="mega-menu-intro">
+
+                                <p class="mega-menu-eyebrow">
+                                    Shop for Him
+                                </p>
+
+                                <h2>Men</h2>
+
+                                <p>
+                                    Refined handmade jewellery created for
+                                    modern and timeless masculine style.
+                                </p>
+
+                                <a href="/#men"
+                                   class="mega-menu-shop-link">
+
+                                    Shop All Men
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Jewellery</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Rings
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Cufflinks
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Chains
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>More to Explore</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Bracelets
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Tie Pins
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Ear Studs
+                                </a>
+
+                            </div>
+
+                            <a class="mega-menu-feature"
+                               href="/#men">
+
+                                <img src="~/assets/images/home/category-men.jpg"
+                                     alt="Men’s handmade jewellery"
+                                     loading="lazy" />
+
+                                <span class="mega-menu-feature-overlay"></span>
+
+                                <span class="mega-menu-feature-content">
+
+                                    <small>Designed for Him</small>
+
+                                    <strong>
+                                        Discover Men’s Jewellery
+                                    </strong>
+
+                                    <span>
+                                        Explore
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <!-- PRECIOUS STONE MEGA MENU -->
+                <li class="nav-item mega-menu-item">
+
+                    <button class="nav-link mega-menu-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="preciousStoneMegaMenu">
+
+                        <span>Fine Gemstone Jewellery</span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                    <div class="mega-menu"
+                         id="preciousStoneMegaMenu">
+
+                        <div class="mega-menu-inner">
+
+                            <div class="mega-menu-intro">
+
+                                <p class="mega-menu-eyebrow">
+                                    Rare Beauty
+                                </p>
+
+                                <h2>Fine Gemstones</h2>
+
+                                <p>
+                                    Discover timeless jewellery featuring
+                                    four of the world’s most beautiful stones.
+                                </p>
+
+                                <a href="/#precious-stones"
+                                   class="mega-menu-shop-link">
+
+                                    Explore Fine Gemstones
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Precious Stones</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Diamond
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Sapphire
+                                </a>
+                               <a href="#"
+                                   data-placeholder="true">
+                                    Ruby
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Emerald
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Semi-Precious Stones</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Spinel
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Tourmaline
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Garnet
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Zircon
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Topaz
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Tanzanite
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Amethyst
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Moonstone
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Iolite
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Chrysoberyl
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Citrine
+                                </a>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Morganite
+                                </a>
+
+                            </div>
+
+                            <a class="mega-menu-feature"
+                               href="/#precious-stones">
+
+                                <img src="~/assets/images/home/stones/sapphire-jewellery.jpg"
+                                     alt="Precious stone jewellery"
+                                     loading="lazy" />
+
+                                <span class="mega-menu-feature-overlay"></span>
+
+                                <span class="mega-menu-feature-content">
+
+                                    <small>Rare and Timeless</small>
+
+                                    <strong>
+                                        Fine Gemstone Jewellery
+                                    </strong>
+
+                                    <span>
+                                        Discover
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <!-- CUSTOMIZATION MEGA MENU -->
+
+                <li class="nav-item mega-menu-item">
+
+                    <button class="nav-link mega-menu-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="customizationMegaMenu">
+
+                        <span>Customization</span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                    <div class="mega-menu"
+                         id="customizationMegaMenu">
+
+                        <div class="mega-menu-inner">
+
+                            <div class="mega-menu-intro">
+
+                                <p class="mega-menu-eyebrow">
+                                    Made for You
+                                </p>
+
+                                <h2>Customization</h2>
+
+                                <p>
+                                    Create meaningful handmade jewellery
+                                    designed around your personal story.
+                                </p>
+
+                                <a href="/#customization"
+                                   class="mega-menu-shop-link">
+
+                                    Start Your Custom Order
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Wedding</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Wedding Jewellery Customization
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Personal Jewellery</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    General Customization
+                                </a>
+
+                            </div>
+
+                            <a class="mega-menu-feature"
+                               href="/#customization">
+
+                                <img src="~/assets/images/home/customization.jpg"
+                                     alt="Customized handmade jewellery"
+                                     loading="lazy" />
+
+                                <span class="mega-menu-feature-overlay"></span>
+
+                                <span class="mega-menu-feature-content">
+
+                                    <small>Designed Around You</small>
+
+                                    <strong>
+                                        Create Something Personal
+                                    </strong>
+
+                                    <span>
+                                        Begin
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <!-- TESTIMONIALS -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="/#testimonials">
+
+                        Testimonials
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="/#education">
+                        Education
+                    </a>
+                </li>
+
+                <!-- ABOUT MEGA MENU -->
+                <li class="nav-item mega-menu-item">
+
+                    <button class="nav-link mega-menu-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="aboutMegaMenu">
+
+                        <span>About</span>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+                    <div class="mega-menu"
+                         id="aboutMegaMenu">
+
+                        <div class="mega-menu-inner">
+
+                            <div class="mega-menu-intro">
+
+                                <p class="mega-menu-eyebrow">
+                                    Luxe Layers LK
+                                </p>
+
+                                <h2>About Us</h2>
+
+                                <p>
+                                    Discover the inspiration, craftsmanship
+                                    and care behind Luxe Layers LK.
+                                </p>
+
+                                <a href="/#about"
+                                   class="mega-menu-shop-link">
+
+                                    Discover Our Brand
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Our Brand</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Our Story
+                                </a>
+
+                            </div>
+
+                            <div class="mega-menu-column">
+
+                                <h3>Get in Touch</h3>
+
+                                <a href="#"
+                                   data-placeholder="true">
+                                    Contact Us
+                                </a>
+
+                            </div>
+
+                            <a class="mega-menu-feature"
+                               href="/#about">
+
+                                <img src="~/assets/images/home/brand-story.jpg"
+                                     alt="Luxe Layers LK brand story"
+                                     loading="lazy" />
+
+                                <span class="mega-menu-feature-overlay"></span>
+
+                                <span class="mega-menu-feature-content">
+
+                                    <small>Handmade with Care</small>
+
+                                    <strong>
+                                        The Luxe Layers Story
+                                    </strong>
+
+                                    <span>
+                                        Read More
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+            <!-- Header Icons -->
+            <div class="header-actions">
+
+                <button class="header-icon"
+                        type="button"
+                        aria-label="Search">
+
+                    <i class="bi bi-search"></i>
+
+                </button>
+
+                <a class="header-icon"
+                   href="#"
+                   aria-label="Customer account">
+
+                    <i class="bi bi-person"></i>
+
+                </a>
+
+                <a class="header-icon"
+                   href="#"
+                   aria-label="Wishlist">
+
+                    <i class="bi bi-heart"></i>
+
+                </a>
+
+                <a class="header-icon cart-icon"
+                   href="#"
+                   aria-label="Shopping bag">
+
+                    <i class="bi bi-bag"></i>
+
+                    <span class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+    </header>
+
+    <main class="site-main"
+          role="main">
+
+        @RenderBody()
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="luxury-container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <img src="~/assets/images/logo.png"
+                         alt="Luxe Layers LK" />
+
+                    <p>
+                        Handmade jewellery designed to celebrate every layer of you.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a href="#"
+                           aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#"
+                           aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="#"
+                           aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>Shop</h3>
+
+                    <a href="/#women">Women</a>
+                    <a href="/#men">Men</a>
+                    <a href="/#new-arrivals">New Arrivals</a>
+                    <a href="/#collections">Collections</a>
+                    <a href="/#customization">Customization</a>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>Customer Care</h3>
+
+                    <a href="#">Contact Us</a>
+                    <a href="#">Delivery Information</a>
+                    <a href="#">Returns & Exchanges</a>
+                    <a href="#">Jewellery Care</a>
+                    <a href="#">Size Guide</a>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>Information</h3>
+
+                    <a href="/#about">About Luxe Layers LK</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Order Tracking</a>
+                    <a href="#">Frequently Asked Questions</a>
+
+                </div>
+
+                <div class="footer-contact">
+
+                    <h3>Contact</h3>
+
+                    <p>
+                        Sri Lanka
+                    </p>
+
+                    <a href="mailto:hello@luxelayerslk.com">
+                        hello@luxelayerslk.com
+                    </a>
+
+                    <a href="#">
+                        Chat with us on WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span id="currentYear"></span> Luxe Layers LK.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Handmade with care in Sri Lanka.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/assets/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

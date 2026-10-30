@@ -1,0 +1,434 @@
+﻿@model LuxeLayersLK.Web.Models.CollectionPageViewModel
+
+@using System.Globalization
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@section Styles {
+    <link rel="stylesheet"
+          href="~/assets/css/collection-page.css"
+          asp-append-version="true" />
+}
+
+<section class="collection-hero collection-hero--nose-rings"
+         style="--collection-hero-image: url('@Model.HeroImage');">
+
+    <div class="collection-hero-overlay"></div>
+
+    <div class="collection-page-container collection-hero-content">
+
+        <p>Understated Everyday Elegance</p>
+
+        <h1>@Model.Title</h1>
+
+        <div class="collection-hero-description">
+            @Model.Subtitle
+        </div>
+
+    </div>
+
+</section>
+
+<nav class="collection-breadcrumb"
+     aria-label="Breadcrumb">
+
+    <div class="collection-page-container">
+
+        <a asp-controller="Home"
+           asp-action="Index">
+            Home
+        </a>
+
+        <span>/</span>
+
+        <a href="/#women">
+            @Model.ParentCategory
+        </a>
+
+        <span>/</span>
+
+        <strong>Nose Rings</strong>
+
+    </div>
+
+</nav>
+
+<section class="collection-toolbar-section">
+
+    <div class="collection-page-container collection-toolbar">
+
+        <div class="collection-filter-group">
+
+            <!-- MATERIAL -->
+            <details class="collection-filter">
+
+                <summary>
+                    Material
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="silver" />
+
+                        <span>925 Sterling Silver</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="gold-plated" />
+
+                        <span>18k Gold-Plated</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="rose-gold" />
+
+                        <span>Rose-Gold Plated</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- STYLE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Style
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="hoop" />
+
+                        <span>Hoop / Ring</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="stud" />
+
+                        <span>Stud / Pin</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="l-bend" />
+
+                        <span>L-Bend</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="corkscrew" />
+
+                        <span>Corkscrew</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="septum" />
+
+                        <span>Septum Rings</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- STONE TYPE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Stone Type
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="diamond" />
+
+                        <span>Diamond</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="sapphire" />
+
+                        <span>Natural Sapphire</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="zircon" />
+
+                        <span>Zircon</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="no-stone" />
+
+                        <span>Plain Metal / No Stone</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- GAUGE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Gauge
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="gauge"
+                               value="18g" />
+
+                        <span>18G (1.0mm)</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="gauge"
+                               value="20g" />
+
+                        <span>20G (0.8mm)</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="gauge"
+                               value="22g" />
+
+                        <span>22G (0.6mm)</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- PRICE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Price Range
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="under-5000" />
+
+                        <span>Under LKR 5,000</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="5000-10000" />
+
+                        <span>LKR 5,000 – LKR 10,000</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="above-10000" />
+
+                        <span>Above LKR 10,000</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <button class="collection-clear-button"
+                    id="clearCollectionFilters"
+                    type="button">
+                Clear Filters
+            </button>
+
+        </div>
+
+        <div class="collection-sort">
+
+            <label for="collectionSort">
+                Sort By
+            </label>
+
+            <select id="collectionSort">
+
+                <option value="featured">
+                    Featured
+                </option>
+
+                <option value="newest">
+                    Newest Arrivals
+                </option>
+
+                <option value="price-low">
+                    Price: Low to High
+                </option>
+
+                <option value="price-high">
+                    Price: High to Low
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="collection-products-section">
+
+    <div class="collection-page-container">
+
+        <div class="collection-results-header">
+
+            <p id="collectionResultCount">
+                @Model.Products.Count nose rings
+            </p>
+
+        </div>
+
+        <div class="collection-product-grid"
+             id="collectionProductGrid">
+
+            @foreach (var product in Model.Products)
+            {
+                var priceValue = product.Price.ToString(
+                    CultureInfo.InvariantCulture
+                );
+
+                <article class="collection-product-card"
+                         data-material="@product.Material"
+                         data-style="@product.StyleLength"
+                         data-stone="@product.StoneType"
+                         data-gauge="@product.Gauge"
+                         data-price="@priceValue"
+                         data-featured="@product.FeaturedOrder"
+                         data-newest="@product.NewestOrder">
+
+                    <div class="collection-product-image">
+
+                        @if (!string.IsNullOrWhiteSpace(product.Badge))
+                        {
+                            <span class="collection-product-badge">
+                                @product.Badge
+                            </span>
+                        }
+
+                        <button class="product-wishlist"
+                                type="button"
+                                aria-label="Add @product.Name to wishlist">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                        <a href="#"
+                           aria-label="View @product.Name">
+
+                            <img class="collection-image-primary"
+                                 src="@product.PrimaryImage"
+                                 alt="@product.Name"
+                                 loading="lazy" />
+
+                            <img class="collection-image-hover"
+                                 src="@product.HoverImage"
+                                 alt="@product.Name being worn"
+                                 loading="lazy" />
+
+                        </a>
+
+                    </div>
+
+                    <div class="collection-product-details">
+
+                        <h2>
+                            <a href="#">
+                                @product.Name
+                            </a>
+                        </h2>
+
+                        <p class="collection-product-price">
+                            LKR @product.Price.ToString("N0")
+                        </p>
+
+                        <button class="collection-product-button"
+                                type="button">
+                            Select Options
+                        </button>
+
+                    </div>
+
+                </article>
+            }
+
+        </div>
+
+        <div class="collection-no-results"
+             id="collectionNoResults"
+             hidden>
+
+            <h2>No nose rings found</h2>
+
+            <p>
+                Try removing one or more filters.
+            </p>
+
+        </div>
+
+        <div class="collection-load-more">
+
+            <button id="collectionLoadMore"
+                    type="button">
+                Load More Nose Rings
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/nose-rings-page.js"
+            asp-append-version="true"></script>
+}

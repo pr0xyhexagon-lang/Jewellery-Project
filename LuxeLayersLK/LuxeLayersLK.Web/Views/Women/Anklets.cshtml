@@ -1,0 +1,409 @@
+﻿@model LuxeLayersLK.Web.Models.CollectionPageViewModel
+
+@using System.Globalization
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@section Styles {
+    <link rel="stylesheet"
+          href="~/assets/css/collection-page.css"
+          asp-append-version="true" />
+}
+
+<section class="collection-hero collection-hero--anklets"
+         style="--collection-hero-image: url('@Model.HeroImage');">
+
+    <div class="collection-hero-overlay"></div>
+
+    <div class="collection-page-container collection-hero-content">
+
+        <p>Designed for Every Step</p>
+
+        <h1>@Model.Title</h1>
+
+        <div class="collection-hero-description">
+            @Model.Subtitle
+        </div>
+
+    </div>
+
+</section>
+
+<nav class="collection-breadcrumb"
+     aria-label="Breadcrumb">
+
+    <div class="collection-page-container">
+
+        <a asp-controller="Home"
+           asp-action="Index">
+            Home
+        </a>
+
+        <span>/</span>
+
+        <a href="/#women">
+            @Model.ParentCategory
+        </a>
+
+        <span>/</span>
+
+        <strong>Anklets</strong>
+
+    </div>
+
+</nav>
+
+<section class="collection-toolbar-section">
+
+    <div class="collection-page-container collection-toolbar">
+
+        <div class="collection-filter-group">
+
+            <!-- MATERIAL -->
+            <details class="collection-filter">
+
+                <summary>
+                    Material
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="silver" />
+                        <span>925 Sterling Silver</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="gold-plated" />
+                        <span>18k Gold-Plated</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="material"
+                               value="rose-gold" />
+                        <span>Rose-Gold Plated</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- STYLE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Style
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="delicate" />
+                        <span>Delicate Chain</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="layered" />
+                        <span>Layered</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="charm" />
+                        <span>Charm Anklets</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="style"
+                               value="beaded" />
+                        <span>Beaded</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- STONE TYPE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Stone Type
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="sapphire" />
+                        <span>Natural Sapphire</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="semi-precious" />
+                        <span>Semi-Precious</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="zircon" />
+                        <span>Zircon</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="stone"
+                               value="no-stone" />
+                        <span>Metal Only / No Stone</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- SIZE / FIT -->
+            <details class="collection-filter">
+
+                <summary>
+                    Size / Fit
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="fit"
+                               value="standard" />
+                        <span>Standard Length (9–10")</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="fit"
+                               value="adjustable" />
+                        <span>Adjustable / Extender Chain</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="fit"
+                               value="custom" />
+                        <span>Custom Size</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <!-- PRICE -->
+            <details class="collection-filter">
+
+                <summary>
+                    Price Range
+                    <i class="bi bi-chevron-down"></i>
+                </summary>
+
+                <div class="collection-filter-panel">
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="under-8000" />
+                        <span>Under LKR 8,000</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="8000-15000" />
+                        <span>LKR 8,000 – LKR 15,000</span>
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               data-filter-group="price"
+                               value="above-15000" />
+                        <span>Above LKR 15,000</span>
+                    </label>
+
+                </div>
+
+            </details>
+
+            <button class="collection-clear-button"
+                    id="clearCollectionFilters"
+                    type="button">
+                Clear Filters
+            </button>
+
+        </div>
+
+        <div class="collection-sort">
+
+            <label for="collectionSort">
+                Sort By
+            </label>
+
+            <select id="collectionSort">
+
+                <option value="featured">
+                    Featured
+                </option>
+
+                <option value="newest">
+                    Newest Arrivals
+                </option>
+
+                <option value="price-low">
+                    Price: Low to High
+                </option>
+
+                <option value="price-high">
+                    Price: High to Low
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="collection-products-section">
+
+    <div class="collection-page-container">
+
+        <div class="collection-results-header">
+
+            <p id="collectionResultCount">
+                @Model.Products.Count anklets
+            </p>
+
+        </div>
+
+        <div class="collection-product-grid"
+             id="collectionProductGrid">
+
+            @foreach (var product in Model.Products)
+            {
+                var priceValue = product.Price.ToString(
+                    CultureInfo.InvariantCulture
+                );
+
+                <article class="collection-product-card"
+                         data-material="@product.Material"
+                         data-style="@product.StyleLength"
+                         data-stone="@product.StoneType"
+                         data-fit="@product.SizeFit"
+                         data-price="@priceValue"
+                         data-featured="@product.FeaturedOrder"
+                         data-newest="@product.NewestOrder">
+
+                    <div class="collection-product-image">
+
+                        @if (!string.IsNullOrWhiteSpace(product.Badge))
+                        {
+                            <span class="collection-product-badge">
+                                @product.Badge
+                            </span>
+                        }
+
+                        <button class="product-wishlist"
+                                type="button"
+                                aria-label="Add @product.Name to wishlist">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                        <a href="#"
+                           aria-label="View @product.Name">
+
+                            <img class="collection-image-primary"
+                                 src="@product.PrimaryImage"
+                                 alt="@product.Name"
+                                 loading="lazy" />
+
+                            <img class="collection-image-hover"
+                                 src="@product.HoverImage"
+                                 alt="@product.Name being worn"
+                                 loading="lazy" />
+
+                        </a>
+
+                    </div>
+
+                    <div class="collection-product-details">
+
+                        <h2>
+                            <a href="#">
+                                @product.Name
+                            </a>
+                        </h2>
+
+                        <p class="collection-product-price">
+                            LKR @product.Price.ToString("N0")
+                        </p>
+
+                        <button class="collection-product-button"
+                                type="button">
+                            Select Options
+                        </button>
+
+                    </div>
+
+                </article>
+            }
+
+        </div>
+
+        <div class="collection-no-results"
+             id="collectionNoResults"
+             hidden>
+
+            <h2>No anklets found</h2>
+
+            <p>
+                Try removing one or more filters.
+            </p>
+
+        </div>
+
+        <div class="collection-load-more">
+
+            <button id="collectionLoadMore"
+                    type="button">
+                Load More Anklets
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/anklets-page.js"
+            asp-append-version="true"></script>
+}
