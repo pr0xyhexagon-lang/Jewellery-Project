@@ -14,6 +14,8 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_ENVIRONMENT=Production
+# Render terminates HTTPS at its proxy; trust X-Forwarded-Proto/For so the app knows the original scheme.
+ENV ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
 EXPOSE 8080
 
 # Render (and similar hosts) pass the port to listen on in $PORT; fall back to 8080 locally.

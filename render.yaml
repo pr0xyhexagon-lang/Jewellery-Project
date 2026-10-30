@@ -1,0 +1,11 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: luxelayerslk
+    runtime: docker
+    plan: free
+    branch: main
+    autoDeploy: true
+    dockerfilePath: ./LuxeLayersLK/Dockerfile
+    dockerContext: ./LuxeLayersLK
+    healthCheckPath: /
